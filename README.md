@@ -1,2 +1,2 @@
-# Giant Fight - AR Scene
+# The Battle - AR Scene
 An experimental Augmented Reality Scene done in Unity with C#.
