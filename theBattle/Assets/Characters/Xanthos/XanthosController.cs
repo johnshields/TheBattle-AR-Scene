@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+
 /*
  * John Shields
  *
@@ -11,7 +12,7 @@ namespace Characters.Xanthos
     {
         // Xanthos Stats
         private float _currentProfile;
-        [SerializeField] public float lowProfile = 0.02f;
+        [SerializeField] public float lowProfile = 0.05f;
 
         private Rigidbody _bodyPhysics;
         private Animator _animator;
@@ -78,7 +79,7 @@ namespace Characters.Xanthos
             var backPressed = Input.GetKey("a");
             // Animator bool
             var backActive = _animator.GetBool(_backWActive);
-            
+
             if (backPressed)
             {
                 // Move Back
@@ -122,6 +123,5 @@ namespace Characters.Xanthos
             _animator.SetBool(_backWActive, false);
             _animator.SetBool(_attackActive, false);
         }
-        
     }
 }
