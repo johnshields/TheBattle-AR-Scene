@@ -51,8 +51,9 @@ namespace Characters.Xanthos
 
             // Player Inputs
             var forwardPressed = Input.GetKey("d");
+            var forwardAPressed = Input.GetKey("right");
 
-            switch (forwardPressed)
+            switch (forwardPressed | forwardAPressed)
             {
                 case true:
                     // Walk
@@ -77,10 +78,11 @@ namespace Characters.Xanthos
         {
             // Player Inputs
             var backPressed = Input.GetKey("a");
+            var backAPressed = Input.GetKey("left");
             // Animator bool
             var backActive = _animator.GetBool(_backWActive);
 
-            if (backPressed)
+            if (backPressed | backAPressed)
             {
                 // Move Back
                 _animator.SetBool(_walkActive, false);
@@ -89,7 +91,7 @@ namespace Characters.Xanthos
                 _animator.SetBool(_backWActive, true);
             }
 
-            if (!backActive || backPressed) return;
+            if (!backActive || backPressed | backAPressed) return;
             // Idle
             _animator.SetBool(_walkActive, false);
             _animator.SetBool(_attackActive, false);

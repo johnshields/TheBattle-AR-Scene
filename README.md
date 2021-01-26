@@ -10,12 +10,10 @@ An experimental Augmented Reality Scene that is being developed with `Unity` and
 `Rider - 2020.3.2`
 
 # Scene
-3D, Fantasy Game that it is in a 2D like view.
-<br>
-<br>
-`Xanthos` is out for a battle...
+3D, Fantasy Game that it is in a 2D like view...
 
 ## Preview
+`Xanthos` is out for a battle...  <br><br>
 ![Game Scene](https://github.com/johnshields/TheBattle-AR-Scene/blob/main/preview/scene_v1.gif)
                            
 Video Source: Took it myself at a old, local monastary. <br>
@@ -28,13 +26,13 @@ Characters are from [Mixamo](https://www.mixamo.com/#/).
 * Knight
   - Sword & Shield
 
-## Orpheus :electron:
+## Orpheus :fire:
 * Wizard
   - Magic
 
 # Gameplay
 ## Controls :running:
-`A` & `D`
+`A` & `D` or :arrow_left: & :arrow_right:
 to move Xanthos `LEFT` and `RIGHT`. <br>
 `LEFT SHIFT` 
 to make Xanthos `SWING` his `SWORD`.
