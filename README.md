@@ -1,8 +1,14 @@
 # The Battle - AR Scene
-An experimental Augmented Reality Scene that is being developed with Unity and C#.
+An experimental Augmented Reality Scene that is being developed with `Unity` and `C#`.
+
+# Development Enviroment
+* OS Name: Microsoft Windows 10 
+* Unity Version: 2020.17f1 
+* JetBrains: Rider - 2020.3.2
 
 # Scene
-3D Game but it is in a 2D like view.<br>
+3D Game but it is in a 2D like view.
+<br>
 Xanthos is out for a battle...
 
 ## Preview
