@@ -937,6 +937,53 @@ Transform:
   m_Father: {fileID: 894605269}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1044854130
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1044854132}
+  - component: {fileID: 1044854131}
+  m_Layer: 0
+  m_Name: fire
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!54 &1044854131
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1044854130}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!4 &1044854132
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1044854130}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1208418951703062000}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1344625582
 GameObject:
   m_ObjectHideFlags: 0
@@ -2067,6 +2114,7 @@ Transform:
   m_Children:
   - {fileID: 667655698445765399}
   - {fileID: 6671370840884512100}
+  - {fileID: 1044854132}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
@@ -2441,6 +2489,7 @@ GameObject:
   - component: {fileID: 1985799427220848462}
   - component: {fileID: 1985799427220848459}
   - component: {fileID: 1985799427220848460}
+  - component: {fileID: 1985799427220848461}
   m_Layer: 0
   m_Name: Orpheus
   m_TagString: Untagged
@@ -2489,6 +2538,19 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!65 &1985799427220848461
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1985799427220848458}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.24751851, z: 1.1238036}
+  m_Center: {x: -2.392991e-16, y: 0.15991274, z: 0.06190173}
 --- !u!114 &1985799427220848462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2501,8 +2563,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 760bea97e726c934685facfae5dc637e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 1985799427220848460}
-  player: {fileID: 8290525336882114026}
+  xanthosPlayer: {fileID: 8290525336882114026}
+  xanthosMask:
+    serializedVersion: 2
+    m_Bits: 256
+  orpheusAgent: {fileID: 1985799427220848460}
+  timeBetweenAttacks: 0.5
+  projectile: {fileID: 1044854130}
+  sightRange: 6
+  attackRange: 3
+  playerInSightRange: 0
+  playerInAttackRange: 0
 --- !u!4 &2028410865329250866
 Transform:
   m_ObjectHideFlags: 0
@@ -5691,7 +5762,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8666628220722591568}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -8.64, y: -0.01, z: -0}
+  m_LocalPosition: {x: -7.87, y: -0.01, z: -0.38}
   m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_Children:
   - {fileID: 8319623452198939363}
@@ -5951,8 +6022,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.4871169, y: 0.25573698, z: 0.99590206}
-  m_Center: {x: -0.01726947, y: 0.18831733, z: 0.028600695}
+  m_Size: {x: 1.4871169, y: 0.25573698, z: 1.1020904}
+  m_Center: {x: -0.01726947, y: 0.18831733, z: 0.081695035}
 --- !u!54 &8666628220722591570
 Rigidbody:
   m_ObjectHideFlags: 0
