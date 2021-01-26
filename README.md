@@ -2,9 +2,12 @@
 An experimental Augmented Reality Scene that is being developed with `Unity` and `C#`.
 
 # Development Enviroment
-* OS Name: Microsoft Windows 10 
-* Unity Version: 2020.17f1 
-* JetBrains: Rider - 2020.3.2
+* OS Name: <br>
+`Microsoft Windows 10`
+* Unity Version: <br>
+`2020.17f1`
+* JetBrains: <br>
+`Rider - 2020.3.2`
 
 # Scene
 3D Game but it is in a 2D like view.
@@ -20,14 +23,16 @@ See the monastary -> [Kilmacduagh Abbey](http://monastic.ie/history/kilmacduagh/
 Characters are from [Mixamo](https://www.mixamo.com/#/).
 
 # Characters
-## Xanthos
+## Xanthos :muscle:
 * Knight
   - Sword & Shield
 
 # Gameplay
 ## Controls :running:
-* A & D to move Xanthos LEFT and RIGHT.
-* LEFT SHIFT to make Xanthos swing his sword.
+`A` & `D`
+to move Xanthos `LEFT` and `RIGHT`. <br>
+`LEFT SHIFT` 
+to make Xanthos `SWING` his `SWORD`.
 
 ***
 ##### END OF README
