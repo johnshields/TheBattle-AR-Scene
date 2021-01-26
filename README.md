@@ -5,7 +5,7 @@ An experimental Augmented Reality Scene that is being developed with `Unity` and
 * OS Name: <br>
 `Microsoft Windows 10`
 * Unity Version: <br>
-`2020.17f1`
+`2020.1.17f1`
 * JetBrains: <br>
 `Rider - 2020.3.2`
 
@@ -23,7 +23,7 @@ See the monastary -> [Kilmacduagh Abbey](http://monastic.ie/history/kilmacduagh/
 Characters are from [Mixamo](https://www.mixamo.com/#/).
 
 # Characters
-## Xanthos :muscle:
+## Xanthos :boom:
 * Knight
   - Sword & Shield
 
