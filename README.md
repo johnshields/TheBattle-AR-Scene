@@ -12,7 +12,8 @@ An experimental Augmented Reality Scene that is being developed with `Unity` and
 # Scene
 3D Game but it is in a 2D like view.
 <br>
-Xanthos is out for a battle...
+<br>
+`Xanthos` is out for a battle...
 
 ## Preview
 ![Game Scene](https://github.com/johnshields/TheBattle-AR-Scene/blob/main/preview/scene_v1.gif)
