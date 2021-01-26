@@ -105,11 +105,12 @@ namespace Characters.Xanthos
 
             switch (attackPressed)
             {
-                // Inspect
+                // Attack
                 case true:
                     _animator.SetBool(_walkActive, false);
                     _animator.SetBool(_idleActive, false);
                     _animator.SetBool(_attackActive, true);
+                    _animator.SetBool(_backWActive, false);
                     _currentProfile = 0;
                     break;
             }
@@ -117,7 +118,8 @@ namespace Characters.Xanthos
             // Idle
             if (!attackActive || attackPressed) return;
             _animator.SetBool(_walkActive, false);
-            _animator.SetBool(_idleActive, false);
+            _animator.SetBool(_idleActive, true);
+            _animator.SetBool(_backWActive, false);
             _animator.SetBool(_attackActive, false);
         }
         
