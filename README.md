@@ -10,7 +10,7 @@ An experimental Augmented Reality Scene that is being developed with `Unity` and
 `Rider - 2020.3.2`
 
 # Scene
-3D Game but it is in a 2D like view.
+3D, Fantasy Game that it is in a 2D like view.
 <br>
 <br>
 `Xanthos` is out for a battle...
@@ -18,15 +18,19 @@ An experimental Augmented Reality Scene that is being developed with `Unity` and
 ## Preview
 ![Game Scene](https://github.com/johnshields/TheBattle-AR-Scene/blob/main/preview/scene_v1.gif)
                            
-Video Source: Took it myself at a local, old monastary. <br>
+Video Source: Took it myself at a old, local monastary. <br>
 See the monastary -> [Kilmacduagh Abbey](http://monastic.ie/history/kilmacduagh/).
 
 Characters are from [Mixamo](https://www.mixamo.com/#/).
 
 # Characters
-## Xanthos :boom:
+## Xanthos :crossed_swords:
 * Knight
   - Sword & Shield
+
+## Orpheus :electron:
+* Wizard
+  - Magic
 
 # Gameplay
 ## Controls :running:
