@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using Characters.Orpheus;
+﻿using Characters.Orpheus;
 using UnityEngine;
 
 namespace Characters.Xanthos
@@ -18,12 +15,12 @@ namespace Characters.Xanthos
         public float attackRange = 0.5f;
         public LayerMask orpheusMask;
         public int attackDamage = 40;
-        
+
         public void AttackHit()
         {
             // Detect Orpheus in range of attack
             var hitOrpheus = Physics.OverlapSphere(attackPoint.position, attackRange, orpheusMask);
-            
+
             // Damage Orpheus
             foreach (var orpheus in hitOrpheus)
             {
@@ -31,12 +28,12 @@ namespace Characters.Xanthos
                 orpheus.GetComponent<OrpheusCombat>().TakeDamage(attackDamage);
             }
         }
-        
+
         private void OnDrawGizmosSelected()
         {
             if (attackPoint == null)
                 return;
-            
+
             // make Attach Point visible 
             Gizmos.DrawWireSphere(attackPoint.position, attackRange);
         }

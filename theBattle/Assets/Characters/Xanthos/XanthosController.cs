@@ -1,4 +1,5 @@
-﻿using Characters.Orpheus;
+﻿using System.Collections;
+using Characters.Orpheus;
 using UnityEngine;
 
 
@@ -24,6 +25,9 @@ namespace Characters.Xanthos
         private int _walkActive;
         private int _backWActive;
         private int _attackActive;
+
+        public float timeBetweenAttacks;
+        private bool _alreadyAttacked;
 
         private void Start()
         {
@@ -107,26 +111,42 @@ namespace Characters.Xanthos
             // Animator bool
             var attackActive = _animator.GetBool(_attackActive);
 
-            switch (attackPressed)
+            if (attackPressed)
             {
-                // Attack
-                case true:
-                    GetComponent<XanthosCombat>().AttackHit();
-                    _animator.SetBool(_walkActive, false);
-                    _animator.SetBool(_idleActive, false);
-                    _animator.SetBool(_attackActive, true);
-                    _animator.SetBool(_backWActive, false);
-                    _currentProfile = 0;
-                    break;
-                
+                _animator.SetBool(_walkActive, false);
+                _animator.SetBool(_idleActive, false);
+                _animator.SetBool(_attackActive, true);
+                _animator.SetBool(_backWActive, false);
+                _currentProfile = 0;
             }
 
+            if (!_alreadyAttacked)
+            {
+                switch (attackPressed)
+                {
+                    // Attack
+                    case true:
+                        GetComponent<XanthosCombat>().AttackHit();
+                        _alreadyAttacked = true;
+                        break;
+                }
+
+                _alreadyAttacked = true;
+                Invoke(nameof(ResetAttack), timeBetweenAttacks);
+            }
             // Idle
-            if (!attackActive || attackPressed) return;
+            else if (!attackActive || attackPressed) return;
+
             _animator.SetBool(_walkActive, false);
-            _animator.SetBool(_idleActive, true);
+            _animator.SetBool(_idleActive, false);
             _animator.SetBool(_backWActive, false);
             _animator.SetBool(_attackActive, false);
+            _currentProfile = 0;
+        }
+
+        private void ResetAttack()
+        {
+            _alreadyAttacked = false;
         }
     }
 }

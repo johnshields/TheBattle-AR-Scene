@@ -23,6 +23,7 @@ namespace Characters.Orpheus
         private int _idleActive;
         private int _walkActive;
         private int _attackActive;
+        private int _deathActive;
 
         // walking
         private bool _walkPointSet;
@@ -42,6 +43,7 @@ namespace Characters.Orpheus
             _idleActive = Animator.StringToHash("IdleActive");
             _walkActive = Animator.StringToHash("WalkActive");
             _attackActive = Animator.StringToHash("AttackActive");
+            _deathActive = Animator.StringToHash("DeathActive");
         }
 
         private void FixedUpdate()
@@ -62,12 +64,14 @@ namespace Characters.Orpheus
                 _animator.SetBool(_walkActive, true);
                 _animator.SetBool(_idleActive, false);
                 _animator.SetBool(_attackActive, false);
+                _animator.SetBool(_deathActive, false);
             }
             else
             {
                 _animator.SetBool(_walkActive, false);
                 _animator.SetBool(_idleActive, true);
                 _animator.SetBool(_attackActive, false);
+                _animator.SetBool(_deathActive, false);
             }
         }
 
@@ -86,6 +90,7 @@ namespace Characters.Orpheus
                     _animator.SetBool(_walkActive, false);
                     _animator.SetBool(_idleActive, false);
                     _animator.SetBool(_attackActive, true);
+                    _animator.SetBool(_deathActive, false);
 
                     // magic fire projectile
 
