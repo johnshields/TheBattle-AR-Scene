@@ -2549,6 +2549,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1208418951703062000}
   - component: {fileID: 1985799427220848462}
+  - component: {fileID: 1985799427220848463}
   - component: {fileID: 1985799427220848459}
   - component: {fileID: 1985799427220848460}
   - component: {fileID: 1985799427220848461}
@@ -2592,7 +2593,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 4
+  m_StoppingDistance: 6
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -2630,12 +2631,25 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   orpheusAgent: {fileID: 1985799427220848460}
-  maxHealth: 10000
   timeBetweenAttacks: 0.5
   sightRange: 6
   attackRange: 3
   playerInSightRange: 0
   playerInAttackRange: 0
+--- !u!114 &1985799427220848463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1985799427220848458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4fbf7056f8b9034aa6b72dd87149f4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 10000
+  currentHealth: 0
 --- !u!4 &2028410865329250866
 Transform:
   m_ObjectHideFlags: 0
@@ -6067,6 +6081,7 @@ GameObject:
   - component: {fileID: 8666628220722591572}
   - component: {fileID: 8666628220722591570}
   - component: {fileID: 8666628220722591569}
+  - component: {fileID: 8666628220722591573}
   m_Layer: 8
   m_Name: Xanthos
   m_TagString: Untagged
@@ -6116,12 +6131,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lowProfile: 0.05
-  attackPoint: {fileID: 300182907}
-  attackRange: 2.35
-  orpheusMask:
-    serializedVersion: 2
-    m_Bits: 1024
-  attackDamage: 20
 --- !u!95 &8666628220722591572
 Animator:
   serializedVersion: 3
@@ -6141,6 +6150,24 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8666628220722591573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8666628220722591568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b2797a226d8d5b49870a988e722430d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackPoint: {fileID: 300182907}
+  attackRange: 2.35
+  orpheusMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  attackDamage: 40
 --- !u!4 &8681125496207401326
 Transform:
   m_ObjectHideFlags: 0

@@ -17,8 +17,6 @@ namespace Characters.Orpheus
 
         // Orpheus
         public NavMeshAgent orpheusAgent;
-        public int maxHealth = 100;
-        public int currentHealth;
 
         // animation 
         private Animator _animator;
@@ -39,8 +37,6 @@ namespace Characters.Orpheus
 
         private void Start()
         {
-            currentHealth = maxHealth;
-                
             _animator = GetComponent<Animator>();
 
             _idleActive = Animator.StringToHash("IdleActive");
@@ -105,30 +101,6 @@ namespace Characters.Orpheus
         private void ResetAttack()
         {
             _alreadyAttacked = false;
-        }
-
-        public void TakeDamage(int damage)
-        {
-            currentHealth -= damage;
-            
-            // hit animation
-            _animator.SetTrigger("HitActive");
-            if (currentHealth <= 0)
-            {
-                FallToDeath();
-            }
-        }
-
-        void FallToDeath()
-        {
-            Debug.Log("Orpheus died!");
-            
-            // death animation
-            _animator.SetBool("DeathActive", true);
-            
-            // disable
-            GetComponent<BoxCollider>().enabled = false;
-            this.enabled = false;
         }
     }
 }

@@ -24,12 +24,6 @@ namespace Characters.Xanthos
         private int _walkActive;
         private int _backWActive;
         private int _attackActive;
-        
-        // combat
-        public Transform attackPoint;
-        public float attackRange = 0.5f;
-        public LayerMask orpheusMask;
-        public int attackDamage = 40;
 
         private void Start()
         {
@@ -117,7 +111,7 @@ namespace Characters.Xanthos
             {
                 // Attack
                 case true:
-                    AttackHit();
+                    GetComponent<XanthosCombat>().AttackHit();
                     _animator.SetBool(_walkActive, false);
                     _animator.SetBool(_idleActive, false);
                     _animator.SetBool(_attackActive, true);
@@ -133,29 +127,6 @@ namespace Characters.Xanthos
             _animator.SetBool(_idleActive, true);
             _animator.SetBool(_backWActive, false);
             _animator.SetBool(_attackActive, false);
-        }
-
-        // combat
-        private void AttackHit()
-        {
-            // Detect Orpheus in range of attack
-            var hitOrpheus = Physics.OverlapSphere(attackPoint.position, attackRange, orpheusMask);
-            
-            // Damage Orpheus
-            foreach (var orpheus in hitOrpheus)
-            {
-                Debug.Log("Xanthos hit " + orpheus.name);
-                orpheus.GetComponent<OrpheusController>().TakeDamage(attackDamage);
-            }
-        }
-        
-        private void OnDrawGizmosSelected()
-        {
-            if (attackPoint == null)
-                return;
-            
-            // make Attach Point visible 
-            Gizmos.DrawWireSphere(attackPoint.position, attackRange);
         }
     }
 }
