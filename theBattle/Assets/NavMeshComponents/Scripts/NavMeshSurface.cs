@@ -2,6 +2,7 @@ using System.Collections.Generic;
 #if UNITY_EDITOR
 using UnityEditor;
 using UnityEditor.SceneManagement;
+
 #endif
 
 namespace UnityEngine.AI
@@ -19,65 +20,128 @@ namespace UnityEngine.AI
     [HelpURL("https://github.com/Unity-Technologies/NavMeshComponents#documentation-draft")]
     public class NavMeshSurface : MonoBehaviour
     {
-        [SerializeField]
-        int m_AgentTypeID;
-        public int agentTypeID { get { return m_AgentTypeID; } set { m_AgentTypeID = value; } }
+        [SerializeField] int m_AgentTypeID;
 
-        [SerializeField]
-        CollectObjects m_CollectObjects = CollectObjects.All;
-        public CollectObjects collectObjects { get { return m_CollectObjects; } set { m_CollectObjects = value; } }
+        public int agentTypeID
+        {
+            get { return m_AgentTypeID; }
+            set { m_AgentTypeID = value; }
+        }
 
-        [SerializeField]
-        Vector3 m_Size = new Vector3(10.0f, 10.0f, 10.0f);
-        public Vector3 size { get { return m_Size; } set { m_Size = value; } }
+        [SerializeField] CollectObjects m_CollectObjects = CollectObjects.All;
 
-        [SerializeField]
-        Vector3 m_Center = new Vector3(0, 2.0f, 0);
-        public Vector3 center { get { return m_Center; } set { m_Center = value; } }
+        public CollectObjects collectObjects
+        {
+            get { return m_CollectObjects; }
+            set { m_CollectObjects = value; }
+        }
 
-        [SerializeField]
-        LayerMask m_LayerMask = ~0;
-        public LayerMask layerMask { get { return m_LayerMask; } set { m_LayerMask = value; } }
+        [SerializeField] Vector3 m_Size = new Vector3(10.0f, 10.0f, 10.0f);
 
-        [SerializeField]
-        NavMeshCollectGeometry m_UseGeometry = NavMeshCollectGeometry.RenderMeshes;
-        public NavMeshCollectGeometry useGeometry { get { return m_UseGeometry; } set { m_UseGeometry = value; } }
+        public Vector3 size
+        {
+            get { return m_Size; }
+            set { m_Size = value; }
+        }
 
-        [SerializeField]
-        int m_DefaultArea;
-        public int defaultArea { get { return m_DefaultArea; } set { m_DefaultArea = value; } }
+        [SerializeField] Vector3 m_Center = new Vector3(0, 2.0f, 0);
 
-        [SerializeField]
-        bool m_IgnoreNavMeshAgent = true;
-        public bool ignoreNavMeshAgent { get { return m_IgnoreNavMeshAgent; } set { m_IgnoreNavMeshAgent = value; } }
+        public Vector3 center
+        {
+            get { return m_Center; }
+            set { m_Center = value; }
+        }
 
-        [SerializeField]
-        bool m_IgnoreNavMeshObstacle = true;
-        public bool ignoreNavMeshObstacle { get { return m_IgnoreNavMeshObstacle; } set { m_IgnoreNavMeshObstacle = value; } }
+        [SerializeField] LayerMask m_LayerMask = ~0;
 
-        [SerializeField]
-        bool m_OverrideTileSize;
-        public bool overrideTileSize { get { return m_OverrideTileSize; } set { m_OverrideTileSize = value; } }
-        [SerializeField]
-        int m_TileSize = 256;
-        public int tileSize { get { return m_TileSize; } set { m_TileSize = value; } }
-        [SerializeField]
-        bool m_OverrideVoxelSize;
-        public bool overrideVoxelSize { get { return m_OverrideVoxelSize; } set { m_OverrideVoxelSize = value; } }
-        [SerializeField]
-        float m_VoxelSize;
-        public float voxelSize { get { return m_VoxelSize; } set { m_VoxelSize = value; } }
+        public LayerMask layerMask
+        {
+            get { return m_LayerMask; }
+            set { m_LayerMask = value; }
+        }
+
+        [SerializeField] NavMeshCollectGeometry m_UseGeometry = NavMeshCollectGeometry.RenderMeshes;
+
+        public NavMeshCollectGeometry useGeometry
+        {
+            get { return m_UseGeometry; }
+            set { m_UseGeometry = value; }
+        }
+
+        [SerializeField] int m_DefaultArea;
+
+        public int defaultArea
+        {
+            get { return m_DefaultArea; }
+            set { m_DefaultArea = value; }
+        }
+
+        [SerializeField] bool m_IgnoreNavMeshAgent = true;
+
+        public bool ignoreNavMeshAgent
+        {
+            get { return m_IgnoreNavMeshAgent; }
+            set { m_IgnoreNavMeshAgent = value; }
+        }
+
+        [SerializeField] bool m_IgnoreNavMeshObstacle = true;
+
+        public bool ignoreNavMeshObstacle
+        {
+            get { return m_IgnoreNavMeshObstacle; }
+            set { m_IgnoreNavMeshObstacle = value; }
+        }
+
+        [SerializeField] bool m_OverrideTileSize;
+
+        public bool overrideTileSize
+        {
+            get { return m_OverrideTileSize; }
+            set { m_OverrideTileSize = value; }
+        }
+
+        [SerializeField] int m_TileSize = 256;
+
+        public int tileSize
+        {
+            get { return m_TileSize; }
+            set { m_TileSize = value; }
+        }
+
+        [SerializeField] bool m_OverrideVoxelSize;
+
+        public bool overrideVoxelSize
+        {
+            get { return m_OverrideVoxelSize; }
+            set { m_OverrideVoxelSize = value; }
+        }
+
+        [SerializeField] float m_VoxelSize;
+
+        public float voxelSize
+        {
+            get { return m_VoxelSize; }
+            set { m_VoxelSize = value; }
+        }
 
         // Currently not supported advanced options
-        [SerializeField]
-        bool m_BuildHeightMesh;
-        public bool buildHeightMesh { get { return m_BuildHeightMesh; } set { m_BuildHeightMesh = value; } }
+        [SerializeField] bool m_BuildHeightMesh;
+
+        public bool buildHeightMesh
+        {
+            get { return m_BuildHeightMesh; }
+            set { m_BuildHeightMesh = value; }
+        }
 
         // Reference to whole scene navmesh data asset.
-        [UnityEngine.Serialization.FormerlySerializedAs("m_BakedNavMeshData")]
-        [SerializeField]
+        [UnityEngine.Serialization.FormerlySerializedAs("m_BakedNavMeshData")] [SerializeField]
         NavMeshData m_NavMeshData;
-        public NavMeshData navMeshData { get { return m_NavMeshData; } set { m_NavMeshData = value; } }
+
+        public NavMeshData navMeshData
+        {
+            get { return m_NavMeshData; }
+            set { m_NavMeshData = value; }
+        }
 
         // Do not serialize - runtime only state.
         NavMeshDataInstance m_NavMeshDataInstance;
@@ -148,11 +212,13 @@ namespace UnityEngine.AI
                 buildSettings.overrideTileSize = true;
                 buildSettings.tileSize = tileSize;
             }
+
             if (overrideVoxelSize)
             {
                 buildSettings.overrideVoxelSize = true;
                 buildSettings.voxelSize = voxelSize;
             }
+
             return buildSettings;
         }
 
@@ -169,7 +235,7 @@ namespace UnityEngine.AI
             }
 
             var data = NavMeshBuilder.BuildNavMeshData(GetBuildSettings(),
-                    sources, sourcesBounds, transform.position, transform.rotation);
+                sources, sourcesBounds, transform.position, transform.rotation);
 
             if (data != null)
             {
@@ -258,7 +324,8 @@ namespace UnityEngine.AI
 #endif
                 var mcenter = m.transform.TransformPoint(m.center);
                 var scale = m.transform.lossyScale;
-                var msize = new Vector3(m.size.x * Mathf.Abs(scale.x), m.size.y * Mathf.Abs(scale.y), m.size.z * Mathf.Abs(scale.z));
+                var msize = new Vector3(m.size.x * Mathf.Abs(scale.x), m.size.y * Mathf.Abs(scale.y),
+                    m.size.z * Mathf.Abs(scale.z));
 
                 var src = new NavMeshBuildSource();
                 src.shape = NavMeshBuildSourceShape.ModifierBox;
@@ -330,21 +397,25 @@ namespace UnityEngine.AI
                 }
                 else if (m_CollectObjects == CollectObjects.Children)
                 {
-                    NavMeshBuilder.CollectSources(transform, m_LayerMask, m_UseGeometry, m_DefaultArea, markups, sources);
+                    NavMeshBuilder.CollectSources(transform, m_LayerMask, m_UseGeometry, m_DefaultArea, markups,
+                        sources);
                 }
                 else if (m_CollectObjects == CollectObjects.Volume)
                 {
                     Matrix4x4 localToWorld = Matrix4x4.TRS(transform.position, transform.rotation, Vector3.one);
                     var worldBounds = GetWorldBounds(localToWorld, new Bounds(m_Center, m_Size));
-                    NavMeshBuilder.CollectSources(worldBounds, m_LayerMask, m_UseGeometry, m_DefaultArea, markups, sources);
+                    NavMeshBuilder.CollectSources(worldBounds, m_LayerMask, m_UseGeometry, m_DefaultArea, markups,
+                        sources);
                 }
             }
 
             if (m_IgnoreNavMeshAgent)
-                sources.RemoveAll((x) => (x.component != null && x.component.gameObject.GetComponent<NavMeshAgent>() != null));
+                sources.RemoveAll((x) =>
+                    (x.component != null && x.component.gameObject.GetComponent<NavMeshAgent>() != null));
 
             if (m_IgnoreNavMeshObstacle)
-                sources.RemoveAll((x) => (x.component != null && x.component.gameObject.GetComponent<NavMeshObstacle>() != null));
+                sources.RemoveAll((x) =>
+                    (x.component != null && x.component.gameObject.GetComponent<NavMeshObstacle>() != null));
 
             AppendModifierVolumes(ref sources);
 
@@ -387,17 +458,20 @@ namespace UnityEngine.AI
                     {
                         // Terrain pivot is lower/left corner - shift bounds accordingly
                         var t = src.sourceObject as TerrainData;
-                        result.Encapsulate(GetWorldBounds(worldToLocal * src.transform, new Bounds(0.5f * t.size, t.size)));
+                        result.Encapsulate(GetWorldBounds(worldToLocal * src.transform,
+                            new Bounds(0.5f * t.size, t.size)));
                         break;
                     }
                     case NavMeshBuildSourceShape.Box:
                     case NavMeshBuildSourceShape.Sphere:
                     case NavMeshBuildSourceShape.Capsule:
                     case NavMeshBuildSourceShape.ModifierBox:
-                        result.Encapsulate(GetWorldBounds(worldToLocal * src.transform, new Bounds(Vector3.zero, src.size)));
+                        result.Encapsulate(GetWorldBounds(worldToLocal * src.transform,
+                            new Bounds(Vector3.zero, src.size)));
                         break;
                 }
             }
+
             // Inflate the bounds a bit to avoid clipping co-planar sources
             result.Expand(0.1f);
             return result;

@@ -41,7 +41,7 @@ namespace UnityEditor.AI
 
         Bounds GetBounds()
         {
-            var navModifier = (NavMeshModifierVolume)target;
+            var navModifier = (NavMeshModifierVolume) target;
             return new Bounds(navModifier.transform.position, navModifier.size);
         }
 
@@ -111,7 +111,7 @@ namespace UnityEditor.AI
             if (!editingCollider)
                 return;
 
-            var vol = (NavMeshModifierVolume)target;
+            var vol = (NavMeshModifierVolume) target;
             var color = vol.enabled ? s_HandleColor : s_HandleColorDisabled;
             using (new Handles.DrawingScope(color, vol.transform.localToWorldMatrix))
             {

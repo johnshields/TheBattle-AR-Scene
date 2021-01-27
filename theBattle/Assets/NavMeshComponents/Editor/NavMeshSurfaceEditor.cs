@@ -88,7 +88,7 @@ namespace UnityEditor.AI
 
         Bounds GetBounds()
         {
-            var navSurface = (NavMeshSurface)target;
+            var navSurface = (NavMeshSurface) target;
             return new Bounds(navSurface.transform.position, navSurface.size);
         }
 
@@ -106,14 +106,16 @@ namespace UnityEditor.AI
                 // Draw image
                 const float diagramHeight = 80.0f;
                 Rect agentDiagramRect = EditorGUILayout.GetControlRect(false, diagramHeight);
-                NavMeshEditorHelpers.DrawAgentDiagram(agentDiagramRect, bs.agentRadius, bs.agentHeight, bs.agentClimb, bs.agentSlope);
+                NavMeshEditorHelpers.DrawAgentDiagram(agentDiagramRect, bs.agentRadius, bs.agentHeight, bs.agentClimb,
+                    bs.agentSlope);
             }
+
             NavMeshComponentsGUIUtility.AgentTypePopup("Agent Type", m_AgentTypeID);
 
             EditorGUILayout.Space();
 
             EditorGUILayout.PropertyField(m_CollectObjects);
-            if ((CollectObjects)m_CollectObjects.enumValueIndex == CollectObjects.Volume)
+            if ((CollectObjects) m_CollectObjects.enumValueIndex == CollectObjects.Volume)
             {
                 EditorGUI.indentLevel++;
 
@@ -145,7 +147,8 @@ namespace UnityEditor.AI
                 // Override voxel size.
                 EditorGUILayout.PropertyField(m_OverrideVoxelSize);
 
-                using (new EditorGUI.DisabledScope(!m_OverrideVoxelSize.boolValue || m_OverrideVoxelSize.hasMultipleDifferentValues))
+                using (new EditorGUI.DisabledScope(!m_OverrideVoxelSize.boolValue ||
+                                                   m_OverrideVoxelSize.hasMultipleDifferentValues))
                 {
                     EditorGUI.indentLevel++;
 
@@ -155,19 +158,27 @@ namespace UnityEditor.AI
                     {
                         if (!m_AgentTypeID.hasMultipleDifferentValues)
                         {
-                            float voxelsPerRadius = m_VoxelSize.floatValue > 0.0f ? (bs.agentRadius / m_VoxelSize.floatValue) : 0.0f;
-                            EditorGUILayout.LabelField(" ", voxelsPerRadius.ToString("0.00") + " voxels per agent radius", EditorStyles.miniLabel);
+                            float voxelsPerRadius = m_VoxelSize.floatValue > 0.0f
+                                ? (bs.agentRadius / m_VoxelSize.floatValue)
+                                : 0.0f;
+                            EditorGUILayout.LabelField(" ",
+                                voxelsPerRadius.ToString("0.00") + " voxels per agent radius", EditorStyles.miniLabel);
                         }
+
                         if (m_OverrideVoxelSize.boolValue)
-                            EditorGUILayout.HelpBox("Voxel size controls how accurately the navigation mesh is generated from the level geometry. A good voxel size is 2-4 voxels per agent radius. Making voxel size smaller will increase build time.", MessageType.None);
+                            EditorGUILayout.HelpBox(
+                                "Voxel size controls how accurately the navigation mesh is generated from the level geometry. A good voxel size is 2-4 voxels per agent radius. Making voxel size smaller will increase build time.",
+                                MessageType.None);
                     }
+
                     EditorGUI.indentLevel--;
                 }
 
                 // Override tile size
                 EditorGUILayout.PropertyField(m_OverrideTileSize);
 
-                using (new EditorGUI.DisabledScope(!m_OverrideTileSize.boolValue || m_OverrideTileSize.hasMultipleDifferentValues))
+                using (new EditorGUI.DisabledScope(!m_OverrideTileSize.boolValue ||
+                                                   m_OverrideTileSize.hasMultipleDifferentValues))
                 {
                     EditorGUI.indentLevel++;
 
@@ -176,14 +187,18 @@ namespace UnityEditor.AI
                     if (!m_TileSize.hasMultipleDifferentValues && !m_VoxelSize.hasMultipleDifferentValues)
                     {
                         float tileWorldSize = m_TileSize.intValue * m_VoxelSize.floatValue;
-                        EditorGUILayout.LabelField(" ", tileWorldSize.ToString("0.00") + " world units", EditorStyles.miniLabel);
+                        EditorGUILayout.LabelField(" ", tileWorldSize.ToString("0.00") + " world units",
+                            EditorStyles.miniLabel);
                     }
 
                     if (!m_OverrideTileSize.hasMultipleDifferentValues)
                     {
                         if (m_OverrideTileSize.boolValue)
-                            EditorGUILayout.HelpBox("Tile size controls the how local the changes to the world are (rebuild or carve). Small tile size allows more local changes, while potentially generating more data overall.", MessageType.None);
+                            EditorGUILayout.HelpBox(
+                                "Tile size controls the how local the changes to the world are (rebuild or carve). Small tile size allows more local changes, while potentially generating more data overall.",
+                                MessageType.None);
                     }
+
                     EditorGUI.indentLevel--;
                 }
 
@@ -224,6 +239,7 @@ namespace UnityEditor.AI
                     {
                         EditorGUILayout.HelpBox(err, MessageType.Warning);
                     }
+
                     GUILayout.BeginHorizontal();
                     GUILayout.Space(EditorGUIUtility.labelWidth);
                     if (GUILayout.Button("Open Agent Settings...", EditorStyles.miniButton))
@@ -240,7 +256,8 @@ namespace UnityEditor.AI
             var nmdRect = EditorGUILayout.GetControlRect(true, EditorGUIUtility.singleLineHeight);
 
             EditorGUI.BeginProperty(nmdRect, GUIContent.none, m_NavMeshData);
-            var rectLabel = EditorGUI.PrefixLabel(nmdRect, GUIUtility.GetControlID(FocusType.Passive), new GUIContent(m_NavMeshData.displayName));
+            var rectLabel = EditorGUI.PrefixLabel(nmdRect, GUIUtility.GetControlID(FocusType.Passive),
+                new GUIContent(m_NavMeshData.displayName));
             EditorGUI.EndProperty();
 
             using (new EditorGUI.DisabledScope(true))
@@ -295,7 +312,7 @@ namespace UnityEditor.AI
                     bakeOperations.RemoveAt(i);
                 }
 
-                EditorGUI.ProgressBar(EditorGUILayout.GetControlRect(), p, "Baking: " + (int)(100 * p) + "%");
+                EditorGUI.ProgressBar(EditorGUILayout.GetControlRect(), p, "Baking: " + (int) (100 * p) + "%");
                 if (p <= 1)
                     Repaint();
 
@@ -364,7 +381,7 @@ namespace UnityEditor.AI
             if (!editingCollider)
                 return;
 
-            var navSurface = (NavMeshSurface)target;
+            var navSurface = (NavMeshSurface) target;
             var color = navSurface.enabled ? s_HandleColor : s_HandleColorDisabled;
             var localToWorld = Matrix4x4.TRS(navSurface.transform.position, navSurface.transform.rotation, Vector3.one);
             using (new Handles.DrawingScope(color, localToWorld))

@@ -91,8 +91,10 @@ namespace UnityEditor.AI
                     navLink.startPoint = navLink.endPoint;
                     navLink.endPoint = tmp;
                 }
+
                 SceneView.RepaintAll();
             }
+
             if (GUILayout.Button("Align Transform"))
             {
                 foreach (NavMeshLink navLink in targets)
@@ -101,8 +103,10 @@ namespace UnityEditor.AI
                     Undo.RecordObject(navLink, "Align Transform to End Points");
                     AlignTransformToEndPoints(navLink);
                 }
+
                 SceneView.RepaintAll();
             }
+
             GUILayout.EndHorizontal();
             EditorGUILayout.Space();
 
@@ -185,7 +189,7 @@ namespace UnityEditor.AI
 
         public void OnSceneGUI()
         {
-            var navLink = (NavMeshLink)target;
+            var navLink = (NavMeshLink) target;
             if (!navLink.enabled)
                 return;
 
@@ -255,7 +259,8 @@ namespace UnityEditor.AI
             }
 
             EditorGUI.BeginChangeCheck();
-            pos = Handles.Slider(midPt - right * navLink.width * 0.5f, -right, midSize * 0.03f, Handles.DotHandleCap, 0);
+            pos = Handles.Slider(midPt - right * navLink.width * 0.5f, -right, midSize * 0.03f, Handles.DotHandleCap,
+                0);
             if (EditorGUI.EndChangeCheck())
             {
                 Undo.RecordObject(navLink, "Adjust link width");

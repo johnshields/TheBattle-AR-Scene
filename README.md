@@ -29,7 +29,7 @@ Characters are from [Mixamo](https://www.mixamo.com/#/).
 
 ## Orpheus :fire:
 * Dark Wizard
-  - Magic
+  - Magic Fire
 
 # Gameplay
 ## Controls :running:

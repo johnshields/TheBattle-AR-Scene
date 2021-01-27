@@ -15,6 +15,7 @@ namespace UnityEditor.AI
                 if (areaValue == areaProperty.intValue)
                     areaIndex = i;
             }
+
             ArrayUtility.Add(ref areaNames, "");
             ArrayUtility.Add(ref areaNames, "Open Area Settings...");
 
@@ -48,6 +49,7 @@ namespace UnityEditor.AI
                 if (id == agentTypeID.intValue)
                     index = i;
             }
+
             agentTypeNames[count] = "";
             agentTypeNames[count + 1] = "Open Agent Settings...";
 
@@ -117,7 +119,7 @@ namespace UnityEditor.AI
                     var sname = NavMesh.GetSettingsNameFromID(id);
 
                     var showSelected = show && AgentMaskHasSelectedAgentTypeID(agentMask, id);
-                    var userData = new object[] { agentMask, id, !showSelected };
+                    var userData = new object[] {agentMask, id, !showSelected};
                     menu.AddItem(new GUIContent(sname), showSelected, ToggleAgentMaskItem, userData);
                 }
 
@@ -149,10 +151,10 @@ namespace UnityEditor.AI
 
         static void ToggleAgentMaskItem(object userData)
         {
-            var args = (object[])userData;
-            var agentMask = (SerializedProperty)args[0];
-            var agentTypeID = (int)args[1];
-            var value = (bool)args[2];
+            var args = (object[]) userData;
+            var agentMask = (SerializedProperty) args[0];
+            var agentTypeID = (int) args[1];
+            var value = (bool) args[2];
 
             ToggleAgentMaskItem(agentMask, agentTypeID, value);
         }
@@ -202,14 +204,14 @@ namespace UnityEditor.AI
 
         static void SetAgentMaskNone(object data)
         {
-            var agentMask = (SerializedProperty)data;
+            var agentMask = (SerializedProperty) data;
             agentMask.ClearArray();
             agentMask.serializedObject.ApplyModifiedProperties();
         }
 
         static void SetAgentMaskAll(object data)
         {
-            var agentMask = (SerializedProperty)data;
+            var agentMask = (SerializedProperty) data;
             agentMask.ClearArray();
             agentMask.InsertArrayElementAtIndex(0);
             agentMask.GetArrayElementAtIndex(0).intValue = -1;
@@ -238,6 +240,7 @@ namespace UnityEditor.AI
                         labelName += ", ";
                     labelName += settingsName;
                 }
+
                 return labelName;
             }
 
@@ -252,6 +255,7 @@ namespace UnityEditor.AI
                 if (elem.intValue == agentTypeID)
                     return true;
             }
+
             return false;
         }
     }

@@ -1,14 +1,14 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
 
-/*
- * John Shields
- *
- * The Battle - Orpheus Controller
- */
 
 namespace Characters.Orpheus
 {
+    /**
+     * John Shields
+     *
+     * The Battle - Orpheus Controller
+     */
     public class OrpheusController : MonoBehaviour
     {
         // Xanthos
@@ -17,6 +17,8 @@ namespace Characters.Orpheus
 
         // Orpheus
         public NavMeshAgent orpheusAgent;
+        public int maxHealth = 100;
+        public int currentHealth;
 
         // animation 
         private Animator _animator;
@@ -30,7 +32,6 @@ namespace Characters.Orpheus
         // attacking
         public float timeBetweenAttacks;
         private bool _alreadyAttacked;
-        public GameObject projectile;
 
         // states
         public float sightRange, attackRange;
@@ -38,6 +39,8 @@ namespace Characters.Orpheus
 
         private void Start()
         {
+            currentHealth = maxHealth;
+                
             _animator = GetComponent<Animator>();
 
             _idleActive = Animator.StringToHash("IdleActive");
@@ -71,7 +74,7 @@ namespace Characters.Orpheus
                 _animator.SetBool(_attackActive, false);
             }
         }
-        
+
         private void Attack()
         {
             // Make sure Orpheus doesn't move
@@ -87,11 +90,11 @@ namespace Characters.Orpheus
                     _animator.SetBool(_walkActive, false);
                     _animator.SetBool(_idleActive, false);
                     _animator.SetBool(_attackActive, true);
-                    var magicFire = Instantiate(projectile, transform.position, Quaternion.identity)
-                        .GetComponent<Rigidbody>();
-                    magicFire.AddForce(transform.forward * 32f, ForceMode.Impulse);
-                    magicFire.AddForce(transform.up * 8f, ForceMode.Impulse);
-                    
+
+                    // magic fire projectile
+
+
+                    // reset attack
                     _alreadyAttacked = true;
                     Invoke(nameof(ResetAttack), timeBetweenAttacks);
                     break;
@@ -102,6 +105,30 @@ namespace Characters.Orpheus
         private void ResetAttack()
         {
             _alreadyAttacked = false;
+        }
+
+        public void TakeDamage(int damage)
+        {
+            currentHealth -= damage;
+            
+            // hit animation
+            _animator.SetTrigger("HitActive");
+            if (currentHealth <= 0)
+            {
+                FallToDeath();
+            }
+        }
+
+        void FallToDeath()
+        {
+            Debug.Log("Orpheus died!");
+            
+            // death animation
+            _animator.SetBool("DeathActive", true);
+            
+            // disable
+            GetComponent<BoxCollider>().enabled = false;
+            this.enabled = false;
         }
     }
 }
