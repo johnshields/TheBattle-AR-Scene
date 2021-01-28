@@ -26,6 +26,7 @@ namespace Characters.Xanthos
         private int _backWActive;
         private int _attackActive;
 
+        // combat
         public float timeBetweenAttacks;
         private bool _alreadyAttacked;
 
