@@ -27,10 +27,12 @@ namespace Characters.Orpheus
 
         // walking
         private bool _walkPointSet;
+        
 
         // attacking
         public float timeBetweenAttacks;
         private bool _alreadyAttacked;
+        public GameObject projectile;
 
         // states
         public float sightRange, attackRange;
@@ -93,7 +95,9 @@ namespace Characters.Orpheus
                     _animator.SetBool(_deathActive, false);
 
                     // magic fire projectile
-
+                    var rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+                    rb.AddForce(transform.forward * 1f, ForceMode.Impulse);
+                    rb.AddForce(transform.up * 1f, ForceMode.Impulse);
 
                     // reset attack
                     _alreadyAttacked = true;

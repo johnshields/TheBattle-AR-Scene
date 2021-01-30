@@ -25,6 +25,7 @@ namespace Characters.Xanthos
         private int _walkActive;
         private int _backWActive;
         private int _attackActive;
+        private int _jumpActive;
 
         // combat
         public float timeBetweenAttacks;
@@ -40,6 +41,7 @@ namespace Characters.Xanthos
             _walkActive = Animator.StringToHash("walkActive");
             _backWActive = Animator.StringToHash("backWActive");
             _attackActive = Animator.StringToHash("AttackActive");
+            _jumpActive = Animator.StringToHash("JumpActive");
         }
 
         // Fixed Update is called once per fixed frame 
@@ -67,6 +69,7 @@ namespace Characters.Xanthos
                     _animator.SetBool(_walkActive, true);
                     _animator.SetBool(_backWActive, false);
                     _animator.SetBool(_attackActive, false);
+                    _animator.SetBool(_jumpActive, false);
                     break;
                 case false:
                     // Idle
@@ -74,6 +77,7 @@ namespace Characters.Xanthos
                     _animator.SetBool(_walkActive, false);
                     _animator.SetBool(_backWActive, false);
                     _animator.SetBool(_attackActive, false);
+                    _animator.SetBool(_jumpActive, false);
                     break;
             }
 
@@ -95,6 +99,7 @@ namespace Characters.Xanthos
                 _animator.SetBool(_attackActive, false);
                 _animator.SetBool(_idleActive, false);
                 _animator.SetBool(_backWActive, true);
+                _animator.SetBool(_jumpActive, false);
             }
 
             if (!backActive || backPressed | backAPressed) return;
@@ -103,6 +108,7 @@ namespace Characters.Xanthos
             _animator.SetBool(_attackActive, false);
             _animator.SetBool(_idleActive, true);
             _animator.SetBool(_backWActive, false);
+            _animator.SetBool(_jumpActive, false);
         }
 
         private void Attack()
@@ -118,6 +124,7 @@ namespace Characters.Xanthos
                 _animator.SetBool(_idleActive, false);
                 _animator.SetBool(_attackActive, true);
                 _animator.SetBool(_backWActive, false);
+                _animator.SetBool(_jumpActive, false);
                 _currentProfile = 0;
             }
 
@@ -142,6 +149,7 @@ namespace Characters.Xanthos
             _animator.SetBool(_idleActive, false);
             _animator.SetBool(_backWActive, false);
             _animator.SetBool(_attackActive, false);
+            _animator.SetBool(_jumpActive, false);
             _currentProfile = 0;
         }
 

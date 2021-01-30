@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 namespace Characters.Orpheus
@@ -27,6 +28,7 @@ namespace Characters.Orpheus
             _hitActive = Animator.StringToHash("HitActive");
             _deathActive = Animator.StringToHash("DeathActive");
         }
+        
 
         public void TakeDamage(int damage)
         {
