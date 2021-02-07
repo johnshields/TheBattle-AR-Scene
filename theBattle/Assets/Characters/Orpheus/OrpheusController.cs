@@ -96,8 +96,8 @@ namespace Characters.Orpheus
 
                     // magic fire projectile
                     var rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
-                    rb.AddForce(transform.forward * 1f, ForceMode.Impulse);
-                    rb.AddForce(transform.up * 1f, ForceMode.Impulse);
+                    rb.AddForce(transform.forward * 0.5f, ForceMode.Impulse);
+                    rb.AddForce(transform.up * 0.5f, ForceMode.Impulse);
 
                     // reset attack
                     _alreadyAttacked = true;

@@ -1190,7 +1190,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 963194227}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -1199,7 +1199,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!95 &1499214568
 Animator:
@@ -1586,7 +1586,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1839756783
 Transform:
   m_ObjectHideFlags: 0
@@ -2602,7 +2602,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4fbf7056f8b9034aa6b72dd87149f4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 500
+  maxHealth: 200
   currentHealth: 0
 --- !u!4 &2028410865329250866
 Transform:
@@ -5760,7 +5760,7 @@ ParticleSystem:
     radiusThickness: 1
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
-    m_Rotation: {x: 0, y: 0, z: 0}
+    m_Rotation: {x: 60, y: 0, z: 0}
     m_Scale: {x: 1, y: 1, z: 1}
     placementMode: 0
     m_MeshMaterialIndex: 0
@@ -5959,7 +5959,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 75
+      scalar: 50
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -9863,7 +9863,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7062353964658250359}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: -0.7071068}
-  m_LocalPosition: {x: -1.26, y: 1.51, z: -0.1}
+  m_LocalPosition: {x: -7.34, y: 1.51, z: -7.42}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7062353964657888851}
@@ -9912,7 +9912,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 7062353964658250355}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 1.1938137
   m_Height: 4.7186575
   m_Direction: 1
@@ -10961,7 +10961,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lowProfile: 0.05
-  jumpLevel: 25
   timeBetweenAttacks: 2
 --- !u!95 &8666628220722591572
 Animator:

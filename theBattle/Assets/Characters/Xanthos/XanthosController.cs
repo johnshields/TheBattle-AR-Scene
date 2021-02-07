@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using Characters.Orpheus;
-using UnityEngine;
-
+﻿using UnityEngine;
 
 namespace Characters.Xanthos
 {

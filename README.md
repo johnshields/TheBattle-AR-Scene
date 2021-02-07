@@ -14,8 +14,8 @@ An experimental Augmented Reality Scene that is being developed with `Unity` and
 Play as the Paladin known as `Xanthos` and battle against `Orpheus` the Dark Wizard!
 
 ## Preview
-Xanthos is out for a battle...  <br><br>
-![Game Scene](https://github.com/johnshields/TheBattle-AR-Scene/blob/main/preview/scene_v1.gif)
+Xanthos is battling against Orpheus...  <br><br>
+![Game Scene](https://github.com/johnshields/TheBattle-AR-Scene/blob/main/preview/scene.gif)
 
 Video Source: Took it myself at a old, local monastery. <br>
 See the monastery -> [Kilmacduagh Abbey](http://monastic.ie/history/kilmacduagh/).
